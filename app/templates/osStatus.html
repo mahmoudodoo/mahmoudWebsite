@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+
+{% block app_content %}    
+    <table class="table table-sm table-dark">
+        <thead>
+          <tr class="active">
+            <th class="success" scope="col">CPU Usage</th>
+            <th class="success" scope="col">Localhost</th>
+            <th class="success" scope="col">Memory Usage</th>
+            <th class="success" scope="col">Disk Usage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="info">
+            <td>{{data.cpu_usage}}</td>
+            <td>{{data.localhost}}</td>
+            <td>{{data.memory_usage}}</td>
+            <td>{{data.disk_usage}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+{% endblock %}
