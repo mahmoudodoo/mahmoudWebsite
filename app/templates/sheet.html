@@ -3,9 +3,20 @@
 
 {% block app_content %}
     <h1>Save The Data in Google Sheet</h1>
+    <h2>Please share your sheet with this email :</h2>
+    <h3>{{client_email}}</h3>
     <div class="row">
         <div class="col-md-4">
             {{ wtf.quick_form(form) }}
         </div>
     </div>
+    <br>
+    <div class="container">
+        <iframe class="responsive-iframe"
+                src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRINxUCuy7ibOTSxIT_02FndPhMimq4vu1uBP-XMOAn0stifVPJw6j4wGgzgjG5KJkfahttBOcYVs2x/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"
+                width="100%"
+                >
+                
+        </iframe>   
+     </div>
 {% endblock %}
