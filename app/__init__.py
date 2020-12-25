@@ -24,4 +24,7 @@ moment = Moment(app)
 
 from app.models import user,post
 from app.views import home,connect4,login,osStatus,register,sheet,xo,user,edit_profile,following,allPosts
-    
+from app.api import bp as api_bp
+
+
+app.register_blueprint(api_bp, url_prefix='/api')
