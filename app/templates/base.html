@@ -22,7 +22,18 @@
                     <li><a href="{{ url_for('allPosts') }}">All Posts</a></li>
                     <li><a href="{{ url_for('osstatus') }}">OS Status</a></li>
                     <li><a href="{{ url_for('sheet') }}">Sheet</a></li>
-                    <li><a href="#">Games</a></li>
+                    <li class="dropdown">
+                        <a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Games
+                        </a>
+                      
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                          <a class="dropdown-item" href="{{ url_for('xo') }}">XO</a>
+                          <br>
+                          <a class="dropdown-item" href="{{ url_for('connect4') }}">Connect 4</a>
+                        </div>
+                    </li>
+
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     {% if current_user.is_anonymous %}

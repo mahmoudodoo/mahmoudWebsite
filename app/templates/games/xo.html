@@ -1,5 +1,37 @@
 {% extends "base.html" %}
 
 {% block app_content %}
-    <h1>Play XO !!!!</h1>
+<link rel="stylesheet" href="{{ url_for('static',filename='css/xo.css') }}">
+
+<div class="container">
+    <div class="jumbotron">
+        <h1>Welcome To Tic Tac Game!</h1>
+        <p>Get Ready To Play!</p>
+        <button id="bRest" type="button" class="btn btn-primary btn-lg" name="button">Restart!</button>
+        <button id="pA" type="button" class="btn btn-primary btn-lg" name="bA" onclick="printArray()">Print Array!</button>
+    </div>
+</div>
+
+<table align="center">
+    <tr>
+        <td id="0"></td>
+        <td id="1"></td>
+        <td id="2"></td>
+    </tr>
+
+    <tr>
+        <td id="3"></td>
+        <td id="4"></td>
+        <td id="5"></td>
+    </tr>
+
+    <tr>
+        <td id="6"></td>
+        <td id="7"></td>
+        <td id="8"></td>
+    </tr>
+</table>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+<script src="{{ url_for('static',filename='javascript/xo.js')}}"></script>
 {% endblock %}
