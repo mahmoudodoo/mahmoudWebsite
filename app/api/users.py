@@ -7,13 +7,11 @@ from app.api.errors import bad_request
 
 # Get a user by id
 @bp.route('/users/<int:id>', methods=['GET'])
-@token_auth.login_required
 def get_user(id):
     return jsonify(Users.query.get_or_404(id).to_dict())
 
 # Get a collection of users
 @bp.route('/users', methods=['GET'])
-@token_auth.login_required
 def get_users():
     page = request.args.get('page', 1, type=int)
     per_page = min(request.args.get('per_page', 10, type=int), 100)
@@ -22,7 +20,6 @@ def get_users():
 
 # Get user followers
 @bp.route('/users/<int:id>/followers', methods=['GET'])
-@token_auth.login_required
 def get_followers(id):
     user = Users.query.get_or_404(id)
     page = request.args.get('page', 1, type=int)
@@ -33,7 +30,6 @@ def get_followers(id):
 
 # Get user followed
 @bp.route('/users/<int:id>/followed', methods=['GET'])
-@token_auth.login_required
 def get_followed(id):
     user = Users.query.get_or_404(id)
     page = request.args.get('page', 1, type=int)
@@ -63,7 +59,6 @@ def create_user():
 
 # Edit a User
 @bp.route('/users/<int:id>', methods=['PUT'])
-@token_auth.login_required
 def update_user(id):
     if token_auth.current_user().id != id:
         abort(403)
