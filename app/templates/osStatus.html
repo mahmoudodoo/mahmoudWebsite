@@ -2,25 +2,34 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 
-{% block app_content %}    
+{% block app_content %} 
+  <!-- <link rel="stylesheet" href="{{ url_for('static',filename='css/osStatus.css') }}"> -->
     <table class="table table-sm table-dark">
         <thead>
           <tr class="active">
             <th class="success" scope="col">CPU Usage</th>
             <th class="success" scope="col">Localhost</th>
             <th class="success" scope="col">Memory Usage</th>
-            <th class="success" scope="col">Disk Usage</th>
+            <th class="success" scope="col">Disk Free</th>
+            <th class="success" scope="col">Disk Used</th>
           </tr>
         </thead>
         <tbody>
           <tr class="info">
-            <td>{{data.cpu_usage}}</td>
-            <td>{{data.localhost}}</td>
-            <td>{{data.memory_usage}}</td>
-            <td>{{data.disk_usage}}</td>
+            <td id="cpu">{{data.cpu_usage}}</td>
+            <td id="localhost">{{data.localhost}}</td>
+            <td id="memory">{{data.memory_usage}}</td>
+            <td id="free_disk">{{data.disk_usage}}</td>
+            <td id="used_disk">{{data.disk_used}}</td>
+            
           </tr>
         </tbody>
       </table>
+      <br>
+      <br>
+      <h1>Disk</h1>
+  
+      <div id="piechart"></div>
       <br>
       <br>
       <div class="row">
@@ -28,5 +37,6 @@
             {{ wtf.quick_form(form) }}
         </div>
     </div>
-
+    <script src="{{ url_for('static',filename='javascript/loader.js') }}"></script>
+    <script src="{{ url_for('static',filename='javascript/osStatus.js') }}"></script>
 {% endblock %}
